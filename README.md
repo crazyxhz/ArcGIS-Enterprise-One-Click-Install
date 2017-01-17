@@ -1,82 +1,84 @@
-# ArcGIS Enterprise Linux 一键安装配置脚本
-[For English version](https://github.com/crazyxhz/ArcGIS-Enterprise-One-Click-Install/blob/master/README.en.md)
-##概览
-该自动化安装脚本支持ArcGIS Enterprise产品体系下：ArcGIS Sever 10.5、Portal  for ArcGIS 10.5、ArcGIS DataStore 10.5 Linux版本的一键安装。安装完成之后，会按照单机部署典型配置方案配置：Server联合Portal并且托管；DataStore配置关系以及缓存数据库。
-
-
+# ArcGIS Enterprise Linux One Click Install Script
+##Overview
+This auto install script support the following ArcGIS Enterprise component's linux version: ArcGIS Server 10.5, Portal for ArcGIS 10.5, ArcGIS DataStore 10.5's automatic installation and configuration. When the script completes its installation. It will configure the installed product to its classic configuration: Server federated with Portal. DataStore configured relational and tileCache Database.
  
-##说明：
-###文件结构
+##Introductions:
+###File structure
 ```
-rpm/		ArcGIS所需依赖包
-yum163/		Redhat 6/7所需的yum源
-init.sh		自动安装配置脚本
-config.sh	配置文件		
+rpm/		ArcGIS's Dependency packages
+yum163/		Redhat 6/7's yum repository
+init.sh		auto install script
+config.sh	configuration file		
 ```
 
-###**配置文件说明：（important）**
+###**Notes on configuration file(important)**
 
-安装前需要按照自己的需要修改config.sh文件，该文件指定了一键安装所必须的许可文件、ArcGIS Enterprise安装文件ISO、以及账号密码等信息，如果没有正确的指定这些信息，自动化安装配置脚本是无法运行成功的。
+Before run the auto install script. You need to modify the config.sh file to suit your own needs. This configuration file contains the information need by the auto install script such as the license file, the ArcGIS Enterprise installation ISO, the account information. If not specified these info correctly, the auto install script will not install correctly.
+
 ```
-newhostname="yourhostname"		
-dnssuffix="yourdnssuffix"
-arcgisuser='youraccout'
-arcgisuserpwd='youraccoutpwd'
+newhostname="cen7"		
+dnssuffix="vm"
+arcgisuser='arcgis'
+arcgisuserpwd='arcgis'
 isofullpath='/path/to/arcgis.iso'
 licensefullpath='/path/to/arcgis_ecp_license.ecp'
 ```
 >newhostname
 
-需要修改的安装目标机器的机器名
+the target machine's new host name
 
 >dnssuffix            
 
-需要修改的安装目标机器的DNS后缀
+the target machine's dns suffix
 
 >arcgisuser
 
-注意：该账号既是安装ArcGIS的操作系统账号，也是Server、Portal管理员的账号
+account name, note: this account name serve as ArcGIS Server OS account, ArcGIS Portal OS account,  Server site admin account, Portal admin account
 
 >arcgisuserpwd
 
-上述账号对应的密码
+The password to the previous account name
 
 >isofullpath
 
-ArcGIS Enterprise Linux 安装光盘（ISO文件）的完整路径、或者是插入了ArcGIS Enterprise Linux 安装光盘的CDROM路径
+ArcGIS Enterprise Linux installation ISO file's full path, or the cdrom path which inserted the Physical ArcGIS Enterprise Linux installation CD.
 
 >licensefullpath
 
-包含了Portal、Server正式版授权许可的许可文件完整路径
+The lincense file's full path which contains the portal and server licneses.
 
-###运行方法
-把该仓库下的所有脚本拷贝到目标Linux环境，如/root/oneclick 文件夹下，切换到该目录下，在shell中运行
+
+###How to run the script
+Copy all files in this repository to the target Linux machine, such as folder /root/oneclick, then cd to the path and execute the following command:
 ```
 bash init.sh
 ```
-即可一键安装并且配置
-###本机虚拟机快速安装说明：
+It will automatically install and config ArcGIS Enterprise on the machine. 
+###Note on quick install to the local machine's VM
 
- 1. 把一键安装脚本所在文件夹共享出来，路径形如：\\本机ip\oneclickinstall
- 2. 把ArcGIS Enterprise ISO所在文件夹共享出来，路径形如：\\本机ip\iso
- 3. 在虚拟机环境中，加载本机的两个共享路径，代码如下：
+ 1. Share the folder containing the repository, Share path is something like \\local machine ip\oneclickinstall
+ 2. Share the folder containing the ArcGIS Enterprise ISO, Share path is something like \\local machine ip\iso
+ 3. in the vm, mout the shared folder using cifs using code below
+
 
 ```
-(root 登录)
+(login as root)
 cd ~
 mkdir share iso
-mount -t cifs //本机ip/oneclickinstall -o username=你的windows账号,password=你的windows密码 ~/share
-mount -t cifs //本机ip/iso -o username=你的windows账号,password=你的windows密码 ~/iso
+mount -t cifs //local machine ip/oneclickinstall -o username=your windows account,password=your windows account password ~/share
+mount -t cifs //local machine ip/iso -o username=your windows account,password=your windows account password ~/iso
 cd share
 bash init.sh
 ```
-注，如果是RH6.5 或者7不支持mount cifs，可以把yum163文件夹下对应的脚本内容拷贝到虚拟机，运行可以自动安装cifs支持
+If the target vm is RH 6.5 or 7 that did not support mount cifs as factory setting. You can copy the matching script in yum 163 folder and run on the target machine. This will automatically install cifs support.
 
-##系统需求：
 
-**ArcGIS支持版本**：目前仅支持ArcGIS Enterprise Linux 10.5 正式版（后续考虑添加老版以及Windows版本的支持）
+##System requirements:
 
-**目前支持操作系统**：
+**Supported ArcGIS Version**:Currently only support ArcGIS Enterprise Linux 10.5 (will consider add support of previous versions and windows version)
+
+
+**Supported OS**:
 
  - Red Hat Enterprise Linux Server 6
  - Red Hat Enterprise Linux Server 7
