@@ -1,4 +1,5 @@
 # ArcGIS Enterprise Linux One Click Install Script
+[中文说明](https://github.com/crazyxhz/ArcGIS-Enterprise-One-Click-Install/blob/master/README_CN.md)
 ##Overview
 This auto install script support the following ArcGIS Enterprise component's linux version: ArcGIS Server 10.5, Portal for ArcGIS 10.5, ArcGIS DataStore 10.5's automatic installation and configuration. When the script completes its installation. It will configure the installed product to its classic configuration: Server federated with Portal. DataStore configured relational and tileCache Database.
  
