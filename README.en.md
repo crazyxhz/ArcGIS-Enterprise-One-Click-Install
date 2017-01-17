@@ -2,7 +2,7 @@
 ##Overview
 This auto install script support the following ArcGIS Enterprise component's linux version: ArcGIS Server 10.5, Portal for ArcGIS 10.5, ArcGIS DataStore 10.5's automatic installation and configuration. When the script completes its installation. It will configure the installed product to its classic configuration: Server federated with Portal. DataStore configured relational and tileCache Database.
  
-##Introductions£º
+##Introductions:
 ###File structure
 ```
 rpm/		ArcGIS's Dependency packages
@@ -11,7 +11,7 @@ init.sh		auto install script
 config.sh	configuration file		
 ```
 
-###**Notes on configuration file£º£¨important£©**
+###**Notes on configuration file(important)**
 
 Before run the auto install script. You need to modify the config.sh file to suit your own needs. This configuration file contains the information need by the auto install script such as the license file, the ArcGIS Enterprise installation ISO, the account information. If not specified these info correctly, the auto install script will not install correctly.
 
@@ -75,10 +75,10 @@ If the target vm is RH 6.5 or 7 that did not support mount cifs as factory setti
 
 ##System requirements:
 
-**Supported ArcGIS Version**£ºCurrently only support ArcGIS Enterprise Linux 10.5 (will consider add support of previous versions and windows version)
+**Supported ArcGIS Version**:Currently only support ArcGIS Enterprise Linux 10.5 (will consider add support of previous versions and windows version)
 
 
-**Supported OS**£º
+**Supported OS**:
 
  - Red Hat Enterprise Linux Server 6
  - Red Hat Enterprise Linux Server 7
