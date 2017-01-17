@@ -14,7 +14,7 @@ config.sh	configuration file
 
 ###**Notes on configuration file(important)**:
 
-Before run the auto install script. You must modify the config.sh file to suit your own needs. This configuration file contains the information needed by the auto install script such as the license file, the ArcGIS Enterprise installation media ISO path, the account information. If not specified these info correctly, the auto install script will not function correctly.
+Before run the auto install script. You **must** modify the config.sh file to suit your own needs. This configuration file contains the information needed by the auto install script such as the license file, the ArcGIS Enterprise installation media ISO path, the account information. If not specified these info correctly, the auto install script will not function correctly.
 
 ```
 newhostname="yourhostname"		
@@ -24,27 +24,27 @@ arcgisuserpwd='youraccoutpwd'
 isofullpath='/path/to/arcgis.iso'
 licensefullpath='/path/to/arcgis_ecp_license.ecp'
 ```
->newhostname
+`newhostname`
 
 the target machine's new host name
 
->dnssuffix            
+`dnssuffix`            
 
 the target machine's dns suffix
 
->arcgisuser
+`arcgisuser`
 
 account name: this account name serve as ArcGIS Server's OS account, Portal's OS account,  Server site's admin account, Portal's admin account
 
->arcgisuserpwd
+`arcgisuserpwd`
 
 The password to the previous account name
 
->isofullpath
+`isofullpath`
 
 ArcGIS Enterprise Linux installation ISO file's full path, or the cdrom path which is inserted with the Physical ArcGIS Enterprise Linux installation CD.
 
->licensefullpath
+`licensefullpath`
 
 The license file's full path, which contains the portal and server's valid licenses.
 
@@ -57,8 +57,8 @@ bash init.sh
 It will automatically install and config ArcGIS Enterprise on the machine. 
 ###Notes about quick install to the local machine's VM
 
- 1. Share the folder containing this repository, Share path is something like \\\\local machine ip\oneclickinstall
- 2. Share the folder containing the ArcGIS Enterprise ISO, Share path is something like \\\\local machine ip\iso
+ 1. Share the folder containing this repository, Share path is something like `\\\\local machine ip\oneclickinstall`
+ 2. Share the folder containing the ArcGIS Enterprise ISO, Share path is something like `\\\\local machine ip\iso`
  3. in the vm, mout the shared folder using cifs using code below
 
 
