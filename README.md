@@ -57,8 +57,8 @@ bash init.sh
 It will automatically install and config ArcGIS Enterprise on the machine. 
 ###Notes about quick install to the local machine's VM
 
- 1. Share the folder containing this repository, Share path is something like `\\\\local machine ip\oneclickinstall`
- 2. Share the folder containing the ArcGIS Enterprise ISO, Share path is something like `\\\\local machine ip\iso`
+ 1. Share the folder containing this repository, Share path is something like `\\local machine ip\oneclickinstall`
+ 2. Share the folder containing the ArcGIS Enterprise ISO, Share path is something like `\\local machine ip\iso`
  3. in the vm, mout the shared folder using cifs using code below
 
 
