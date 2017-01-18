@@ -1,4 +1,4 @@
-# ArcGIS Enterprise Linux 一键自动安装配置脚本
+# ArcGIS Enterprise Linux 一键安装配置脚本
 
 ##概览
 该自动化安装脚本支持ArcGIS Enterprise产品体系下：ArcGIS Sever 10.5、Portal  for ArcGIS 10.5、ArcGIS DataStore 10.5 Linux版本的一键安装。安装完成之后，会按照单机部署典型配置方案配置：Server联合Portal并且托管；DataStore配置关系以及缓存数据库。
